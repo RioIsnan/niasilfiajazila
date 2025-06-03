@@ -215,10 +215,14 @@
   </section>
 
   <!-- Photos Screen -->
-  <section class="container" id="photosScreen" aria-label="Foto Romantis">
+<!--   <section class="container" id="photosScreen" aria-label="Foto Romantis">
     <img src="" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
     <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
-  </section>
+  </section> -->
+  <section class="container" id="photosScreen" aria-label="Foto Romantis">
+  <img src="" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
+  <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
+</section>
 
 
 <!-- Black Screen -->
@@ -267,19 +271,28 @@
     // const photosScreen = document.getElementById('photosScreen');
     // const photoDisplay = document.getElementById('photoDisplay');
     // const nextPhotoBtn = document.getElementById('nextPhotoBtn');
-    let currentPhoto = 0;
+   const photoDisplay = document.getElementById('photoDisplay');
+  const nextPhotoBtn = document.getElementById('nextPhotoBtn');
 
-function showPhoto(index) {
-  photoDisplay.src = photos[index];
-}
+  const photos = [
+    'https://drive.google.com/uc?export=view&id=1H-qeju5hiBE6KF4Yj-f-WxzQsxMW7jvT',
+    'https://drive.google.com/uc?export=view&id=1Q_J8ZIzaZajPhmokHHR6Vw2HLEAEOXIP',
+    'https://drive.google.com/uc?export=view&id=1-FZN3T_xFSQIpP6KaA1nOCxEbK-YDvLn',
+    'https://drive.google.com/uc?export=view&id=1399iGbwauUYZjhzl3mAAsXvJujMVWZdk'
+  ];
 
-nextPhotoBtn.addEventListener('click', () => {
-  currentPhoto = (currentPhoto + 1) % photos.length;
+  let currentPhoto = 0;
+
+  function showPhoto(index) {
+    photoDisplay.src = photos[index];
+  }
+
+  nextPhotoBtn.addEventListener('click', () => {
+    currentPhoto = (currentPhoto + 1) % photos.length;
+    showPhoto(currentPhoto);
+  });
+
   showPhoto(currentPhoto);
-});
-
-// Tampilkan foto pertama saat halaman dimuat
-showPhoto(currentPhoto);
 
 
     const blackScreen = document.getElementById('blackScreen');
