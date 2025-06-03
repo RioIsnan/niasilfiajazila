@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>I Love You 🤍</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
+
+  /* Common Styles */
+  body, html {
+    margin: 0; padding: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #f78ca0, #f9748f, #fd868c, #fe9a8b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a1a40;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 8px 26px rgba(243, 156, 204, 0.75);
+    padding: 2rem 4rem;
+    text-align: center;
+    position: relative;
+    margin-left: 0px;
+  }
+
+  h1, h2, p {
+    margin: 0 0 1rem 0;
+  }
+
+  h1 {
+    font-family: 'poppins', cursive;
+    font-size: 2rem;
+    color: #ad1c66;
+    text-shadow: 0 3px 8px rgba(251, 189, 222, 0.75);
+  }
+
+  button {
+    cursor: pointer;
+    background: #ad1c66;
+    border: none;
+    border-radius: 50px;
+    padding: 0.85rem 2.4rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(173, 28, 102, 0.6);
+    transition: background 0.35s ease, transform 0.25s ease, box-shadow 0.35s ease;
+  }
+  button:hover, button:focus {
+    background: #e93c8c;
+    outline: none;
+    transform: scale(1.1);
+    box-shadow: 0 8px 26px rgba(233, 60, 140, 0.8);
+  }
+
+  input[type="password"] {
+    width: 90%;
+    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border: 2px solid #ad1c66;
+    margin-bottom: 1.5rem;
+    
+    outline: none;
+    font-weight: 600;
+    color: #4a1a40;
+    box-shadow: inset 0 0 5px rgba(173, 28, 102, 0.4);
+    transition: border-color 0.4s ease;
+    position: center;
+  }
+  input[type="password"]:focus {
+    border-color: #e93c8c;
+  }
+
+  /* Sections */
+  section {
+    display: none;
+  }
+  section.active {
+    display: block;
+  }
+
+  .error-message {
+    color: #cc1620;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  /* Quote Section */
+  .quote-text {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #a12b6e;
+    margin-bottom: 2rem;
+    min-height: 60px;
+    line-height: 1.4;
+  }
+
+  /* Photos */
+  .photo-slide {
+    width: 100%;
+    height: auto; /* Mengatur tinggi otomatis untuk menjaga proporsi */
+    max-height: 300px; /* Maksimal tinggi gambar */
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0 8px 18px rgba(208, 102, 165, 0.5);
+    user-select: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  .photo-slide.active {
+    opacity: 1;
+  }
+  .btn-photo-next {
+    margin-top: 1.5rem;
+    background: #ad1c66cc;
+  }
+
+  /* Black screen overlay */
+  .black-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+    user-select: none;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.7s ease;
+  }
+  .black-screen.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .black-screen span.timer {
+    font-size: 3rem;
+    margin-top: 0.5rem;
+    font-family: monospace;
+    color: #ff5c8d;
+    text-shadow: 0 0 12px #fff9f9;
+  }
+
+  /* Proposal Section */
+  .proposal {
+    margin-top: 10vh;
+  }
+  .proposal p {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #ad1c66;
+    text-shadow: 0 1px 4px rgba(173, 28, 102, 0.7);
+  }
+  .proposal .btns {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .proposal .btns button {
+    flex: 1 1 120px;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+  }
+
+  /* Video Section */
+  .video-section {
+    display: flex;
+    justify-content: center; /* Memusatkan video */
+    align-items: center; /* Memusatkan video secara vertikal */
+  }
+  .video-section video {
+    width: 90%; /* Lebar video 90% dari kontainer */
+    max-width: 400px; /* Maksimal lebar video */
+    height: auto; /* Mengatur tinggi otomatis untuk menjaga proporsi */
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(193, 9, 97, 0.8);
+  }
+</style>
+</head>
+<body>
+
+
+
+  <!-- Lock Screen -->
+  <section id="lockScreen" class="active container" aria-label="Halaman Kunci">
+    <h1>Masukkan Password</h1>
+    <input type="password" id="passwordInput" placeholder="Masukkan passwordmu" aria-describedby="lockError" />
+    <div id="lockError" class="error-message" role="alert" aria-live="assertive" style="display:none;">Password salah, coba lagi ya...</div>
+    <button id="unlockBtn" aria-label="Buka kunci halaman">Buka Kunci</button>
+  </section>
+
+  <!-- Quote Screen -->
+  <section class="container" id="quoteScreen" aria-label="Kutipan Romantis">
+    <h1>Untukmu</h1>
+    <p class="quote-text" id="quoteText">&quot;Aku tahu aku telah membuat kesalahan, dan aku sangat menyesal. Mungkin kata maaf tak cukup untuk menghapus semua luka yang pernah aku timbulkan, tapi dari lubuk hatiku yang paling dalam, aku benar-benar minta maaf. Aku hanya ingin kita bisa kembali berjalan berdampingan, seperti dulu, saat segalanya terasa lebih sederhana dan indah. Jika masih ada ruang di hatimu untuk memaafkan, izinkan aku menebus segalanya dan merajut ulang cerita kita.&quot;</p>
+    <button id="showPhotosBtn" aria-label="Lanjutkan ke foto-foto">Lanjutkan</button>
+  </section>
+
+  <!-- Photos Screen -->
+  <section class="container" id="photosScreen" aria-label="Foto Romantis">
+    <img src="" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
+    <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
+  </section>
+
+
+<!-- Black Screen -->
+<div id="blackScreen" class="black-screen" aria-live="polite" aria-atomic="true" role="region" aria-label="Layar hitam sementara, hitung mundur">
+  <div>Tunggu sebentar...
+    <br>Biar kamu deg-degan, hehehe
+  </div>
+  <span class="timer" aria-live="assertive" aria-atomic="true" id="countdownTimer">60</span>
+</div>
+
+<!-- Proposal Screen -->
+<div id="proposalScreen" class="container" role="dialog" aria-modal="true" aria-labelledby="proposalQuestion" style="display:none;">
+  <div class="proposal">
+    <p id="proposalQuestion">Maukah kamu jadi pacarku?</p>
+    <div class="btns">
+      <button id="btnYes" aria-label="Jawab iya">Iya</button>
+      <button id="btnNo" aria-label="Jawab tidak">Tidak</button>
+    </div>
+  </div>
+</div>
+
+<!-- Video Screen -->
+<div id="videoScreen" class="container video-section" role="region" aria-label="Video romantis" style="display:none;">
+  <video id="loveVideo" controls aria-describedby="videoDesc" tabindex="0">
+    <source src="images/1.mp4" type="video/mp4" />
+    Browsermu tidak mendukung pemutar video.
+  </video>
+  <p id="videoDesc" style="margin-top: 1rem; font-style: italic; color: #7a3a61;">I Love You🤍</p>
+</div>
+
+<script>
+  (function() {
+    // Password untuk membuka kunci
+    const PASSWORD = '160203091103';
+
+    // Elemen-elemen
+    const lockScreen = document.getElementById('lockScreen');
+    const passwordInput = document.getElementById('passwordInput');
+    const unlockBtn = document.getElementById('unlockBtn');
+    const lockError = document.getElementById('lockError');
+
+    const quoteScreen = document.getElementById('quoteScreen');
+    const showPhotosBtn = document.getElementById('showPhotosBtn');
+
+    const photosScreen = document.getElementById('photosScreen');
+    const photoDisplay = document.getElementById('photoDisplay');
+    const nextPhotoBtn = document.getElementById('nextPhotoBtn');
+
+    const blackScreen = document.getElementById('blackScreen');
+    const countdownTimer = document.getElementById('countdownTimer');
+
+    const proposalScreen = document.getElementById('proposalScreen');
+    const btnYes = document.getElementById('btnYes');
+    const btnNo = document.getElementById('btnNo');
+
+    const videoScreen = document.getElementById('videoScreen');
+    const loveVideo = document.getElementById('loveVideo');
+
+    // Gambar
+    const photos = [
+      'images/1.JPG',
+      'images/2.JPG',
+      'images/3.JPG',
+      'images/4.JPG'
+    ];
+
+    // Status
+    let photoIndex = 0;
+    let countdown = 60;
+    let countdownInterval = null;
+    let proposalAnswered = false;
+
+    function showSection(section) {
+      [lockScreen, quoteScreen, photosScreen].forEach(sec => sec.classList.remove('active'));
+      section.classList.add('active');
+    }
+
+    // Tombol buka kunci
+    unlockBtn.addEventListener('click', () => {
+      const val = passwordInput.value.trim();
+      if(val.toLowerCase() === PASSWORD) {
+        lockError.style.display = 'none';
+        passwordInput.value = '';
+        showSection(quoteScreen);
+        passwordInput.blur();
+      } else {
+        lockError.style.display = 'block';
+        passwordInput.focus();
+      }
+    });
+
+    // Tekan Enter juga buka kunci
+    passwordInput.addEventListener('keypress', (e) => {
+       if(e.key === 'Enter') {
+         unlockBtn.click();
+       }
+    });
+
+    // Lanjut ke foto
+    showPhotosBtn.addEventListener('click', () => {
+      photoIndex = 0;
+      photoDisplay.src = photos[photoIndex];
+      photoDisplay.alt = `Foto romantis ${photoIndex + 1}`;
+      photoDisplay.classList.add('active');
+      showSection(photosScreen);
+      photoDisplay.focus();
+      nextPhotoBtn.disabled = false; 
+    });
+
+    nextPhotoBtn.addEventListener('click', () => {
+      photoIndex++;
+      if(photoIndex >= photos.length) {
+        startBlackScreenCountdown();
+        return;
+      }
+      photoDisplay.src = photos[photoIndex];
+      photoDisplay.alt = `Foto romantis ${photoIndex + 1}`;
+    });
+
+    function startBlackScreenCountdown() {
+      lockScreen.classList.remove('active');
+      quoteScreen.classList.remove('active');
+      photosScreen.classList.remove('active');
+      proposalScreen.style.display = 'none';
+      videoScreen.style.display = 'none';
+
+      blackScreen.classList.add('visible');
+      countdown = 60;
+      countdownTimer.textContent = countdown;
+
+      countdownInterval = setInterval(() => {
+        countdown--;
+        countdownTimer.textContent = countdown;
+        if(countdown <= 0) {
+          clearInterval(countdownInterval);
+          blackScreen.classList.remove('visible');
+          showProposal();
+        }
+      }, 1000);
+    }
+
+    function showProposal() {
+      proposalScreen.style.display = 'block';
+      proposalScreen.focus();
+    }
+
+    function showVideo() {
+      videoScreen.style.display = 'block';
+      loveVideo.play();
+      proposalScreen.style.display = 'none';
+    }
+
+    // Tombol "Iya"
+    btnYes.addEventListener('click', () => {
+      if(proposalAnswered) return;
+      proposalAnswered = true;
+      showVideo();
+    });
+
+    // Tombol "Tidak"
+    btnNo.addEventListener('click', () => {
+      if(proposalAnswered) return;
+      proposalAnswered = true;
+
+      const proposalText = proposalScreen.querySelector('.proposal p');
+      proposalText.textContent = 'Masak kamu gak mau sama aku? 😢';
+
+      btnYes.disabled = true;
+      btnNo.disabled = true;
+
+      setTimeout(() => {
+        proposalAnswered = false;
+        proposalText.textContent = 'Maukah kamu jadi pacarku?';
+        btnYes.disabled = false;
+        btnNo.disabled = false;
+      }, 3000);
+    });
+
+  })();
+</script>
+
+
+</body>
+</html>
