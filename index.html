@@ -214,11 +214,11 @@
     <button id="showPhotosBtn" aria-label="Lanjutkan ke foto-foto">Lanjutkan</button>
   </section>
 
- <!-- Photos Screen -->
-<section class="container" id="photosScreen" aria-label="Foto Romantis">
-  <img src="images/1.jpg" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
-  <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
-</section>
+  <!-- Photos Screen -->
+  <section class="container" id="photosScreen" aria-label="Foto Romantis">
+    <img src="" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
+    <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
+  </section>
 
 
 <!-- Black Screen -->
@@ -252,7 +252,7 @@
 <script>
   (function() {
     // Password untuk membuka kunci
-    const PASSWORD = '1';
+    const PASSWORD = '160203091103';
 
     // Elemen-elemen
     const lockScreen = document.getElementById('lockScreen');
@@ -265,7 +265,6 @@
 
     const photosScreen = document.getElementById('photosScreen');
     const photoDisplay = document.getElementById('photoDisplay');
-    
     const nextPhotoBtn = document.getElementById('nextPhotoBtn');
 
     const blackScreen = document.getElementById('blackScreen');
@@ -280,12 +279,11 @@
 
     // Gambar
     const photos = [
-  'images/1.jpg',
-  'images/2.jpg',
-  'images/3.jpg',
-  'images/4.jpg'
-];
-
+      'images/1.jpg',
+      'images/2.jpg',
+      'images/3.jpg',
+      'images/4.jpg'
+    ];
 
     // Status
     let photoIndex = 0;
