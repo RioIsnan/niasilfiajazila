@@ -219,10 +219,7 @@
     <img src="" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
     <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
   </section> -->
-  <section class="container" id="photosScreen" aria-label="Foto Romantis">
-  <img src="" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
-  <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
-</section>
+
 
 
 <!-- Black Screen -->
@@ -253,25 +250,14 @@
   <p id="videoDesc" style="margin-top: 1rem; font-style: italic; color: #7a3a61;">I Love You🤍</p>
 </div>
 
+
+  <section class="container" id="photosScreen" aria-label="Foto Romantis">
+  <img src="" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
+  <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
+</section>
+
 <script>
-  (function() {
-    // Password untuk membuka kunci
-    const PASSWORD = '160203091103';
-
-    // Elemen-elemen
-    const lockScreen = document.getElementById('lockScreen');
-    const passwordInput = document.getElementById('passwordInput');
-    const unlockBtn = document.getElementById('unlockBtn');
-    const lockError = document.getElementById('lockError');
-
-    const quoteScreen = document.getElementById('quoteScreen');
-    const showPhotosBtn = document.getElementById('showPhotosBtn');
-
-   
-    // const photosScreen = document.getElementById('photosScreen');
-    // const photoDisplay = document.getElementById('photoDisplay');
-    // const nextPhotoBtn = document.getElementById('nextPhotoBtn');
-   const photoDisplay = document.getElementById('photoDisplay');
+  const photoDisplay = document.getElementById('photoDisplay');
   const nextPhotoBtn = document.getElementById('nextPhotoBtn');
 
   const photos = [
@@ -293,6 +279,27 @@
   });
 
   showPhoto(currentPhoto);
+</script>
+
+<script>
+  (function() {
+    // Password untuk membuka kunci
+    const PASSWORD = '160203091103';
+
+    // Elemen-elemen
+    const lockScreen = document.getElementById('lockScreen');
+    const passwordInput = document.getElementById('passwordInput');
+    const unlockBtn = document.getElementById('unlockBtn');
+    const lockError = document.getElementById('lockError');
+
+    const quoteScreen = document.getElementById('quoteScreen');
+    const showPhotosBtn = document.getElementById('showPhotosBtn');
+
+   
+    // const photosScreen = document.getElementById('photosScreen');
+    // const photoDisplay = document.getElementById('photoDisplay');
+    // const nextPhotoBtn = document.getElementById('nextPhotoBtn');
+  
 
 
     const blackScreen = document.getElementById('blackScreen');
