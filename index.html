@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Love</title>
+<title>I Love You 🤍</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
 
@@ -165,7 +165,7 @@
   .proposal p {
     font-size: 1.4rem;
     font-weight: 700;
-    margin-bottom: 2rem;photosScreen
+    margin-bottom: 2rem;
     color: #ad1c66;
     text-shadow: 0 1px 4px rgba(173, 28, 102, 0.7);
   }
@@ -215,15 +215,13 @@
   </section>
 
   <!-- Photos Screen -->
-<!--   <section class="container" id="photosScreen" aria-label="Foto Romantis">
-    <img src="" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
-    <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
-  </section> -->
   <section class="container" id="photosScreen" aria-label="Foto Romantis">
-  <img src="" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
-  <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
-</section>
-
+    <source src="images/1.JPG" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
+    <source src="images/2.JPG" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
+    <source src="images/3.JPG" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
+    <source src="images/4.JPG" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
+    <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
+  </section>
 
 
 <!-- Black Screen -->
@@ -254,16 +252,6 @@
   <p id="videoDesc" style="margin-top: 1rem; font-style: italic; color: #7a3a61;">I Love You🤍</p>
 </div>
 
-
-  <section class="container" id="photosScreen" aria-label="Foto Romantis">
-  <img src="" alt="Foto romantis" id="photoDisplay" class="photo-slide" tabindex="0" />
-  <button id="nextPhotoBtn" class="btn-photo-next" aria-label="Foto berikutnya">Foto Berikutnya</button>
-</section>
-
-<script>
-  
-</script>
-
 <script>
   (function() {
     // Password untuk membuka kunci
@@ -278,34 +266,10 @@
     const quoteScreen = document.getElementById('quoteScreen');
     const showPhotosBtn = document.getElementById('showPhotosBtn');
 
-   
-    // const photosScreen = document.getElementById('photosScreen');
-    // const photoDisplay = document.getElementById('photoDisplay');
-    // const nextPhotoBtn = document.getElementById('nextPhotoBtn');
-  const photoDisplay = document.getElementById('photoDisplay');
-  const nextPhotoBtn = document.getElementById('nextPhotoBtn');
+    const photosScreen = document.getElementById('photosScreen');
+    const photoDisplay = document.getElementById('photoDisplay');
+    const nextPhotoBtn = document.getElementById('nextPhotoBtn');
 
-   const photos = [
-     'images/1.jpg',
-     'images/2.jpg',
-    'images/3.jpg',
-    'images/4.jpg'
-   ];
-
-  let currentPhoto = 0;
-
-  function showPhoto(index) {
-    photoDisplay.src = photos[index];
-  }
-
-  nextPhotoBtn.addEventListener('click', () => {
-    currentPhoto = (currentPhoto + 1) % photos.length;
-    showPhoto(currentPhoto);
-  });
-
-  showPhoto(currentPhoto);
-
-//
     const blackScreen = document.getElementById('blackScreen');
     const countdownTimer = document.getElementById('countdownTimer');
 
@@ -316,14 +280,16 @@
     const videoScreen = document.getElementById('videoScreen');
     const loveVideo = document.getElementById('loveVideo');
 
-    //Gambar
-  //   const photos = [
-  // 'https://drive.google.com/uc?export=view&id=1H-qeju5hiBE6KF4Yj-f-WxzQsxMW7jvT',
-  // 'https://drive.google.com/uc?export=view&id=1Q_J8ZIzaZajPhmokHHR6Vw2HLEAEOXIP',
-  // 'https://drive.google.com/uc?export=view&id=1-FZN3T_xFSQIpP6KaA1nOCxEbK-YDvLn',
-  // 'https://drive.google.com/uc?export=view&id=1399iGbwauUYZjhzl3mAAsXvJujMVWZdk'
-  // ];
-
+    // Gambar
+    const photos = [
+      'images/1.jpg',
+      'images/2.jpg',
+      'images/3.jpg',
+      'images/4.jpg'
+    ];
+     const photoDisplay = document.createElement('photoDisplay');
+    img.src = 'images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg'; // Atur sumber gambar
+    img.alt = 'Deskripsi gambar';
 
     // Status
     let photoIndex = 0;
