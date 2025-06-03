@@ -264,9 +264,23 @@
     const showPhotosBtn = document.getElementById('showPhotosBtn');
 
    
-    const photosScreen = document.getElementById('photosScreen');
-    const photoDisplay = document.getElementById('photoDisplay');
-    const nextPhotoBtn = document.getElementById('nextPhotoBtn');
+    // const photosScreen = document.getElementById('photosScreen');
+    // const photoDisplay = document.getElementById('photoDisplay');
+    // const nextPhotoBtn = document.getElementById('nextPhotoBtn');
+    let currentPhoto = 0;
+
+function showPhoto(index) {
+  photoDisplay.src = photos[index];
+}
+
+nextPhotoBtn.addEventListener('click', () => {
+  currentPhoto = (currentPhoto + 1) % photos.length;
+  showPhoto(currentPhoto);
+});
+
+// Tampilkan foto pertama saat halaman dimuat
+showPhoto(currentPhoto);
+
 
     const blackScreen = document.getElementById('blackScreen');
     const countdownTimer = document.getElementById('countdownTimer');
@@ -280,11 +294,12 @@
 
     // Gambar
     const photos = [
-      'https://drive.google.com/file/d/1H-qeju5hiBE6KF4Yj-f-WxzQsxMW7jvT/view?usp=sharing',
-      'https://drive.google.com/file/d/1Q_J8ZIzaZajPhmokHHR6Vw2HLEAEOXIP/view?usp=sharing',
-      'https://drive.google.com/file/d/1-FZN3T_xFSQIpP6KaA1nOCxEbK-YDvLn/view?usp=sharing',
-      'https://drive.google.com/file/d/1399iGbwauUYZjhzl3mAAsXvJujMVWZdk/view?usp=sharing'
-    ];
+  'https://drive.google.com/uc?export=view&id=1H-qeju5hiBE6KF4Yj-f-WxzQsxMW7jvT',
+  'https://drive.google.com/uc?export=view&id=1Q_J8ZIzaZajPhmokHHR6Vw2HLEAEOXIP',
+  'https://drive.google.com/uc?export=view&id=1-FZN3T_xFSQIpP6KaA1nOCxEbK-YDvLn',
+  'https://drive.google.com/uc?export=view&id=1399iGbwauUYZjhzl3mAAsXvJujMVWZdk'
+  ];
+
 
     // Status
     let photoIndex = 0;
